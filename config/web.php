@@ -15,8 +15,13 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
+            'class' => 'yii\web\User',
+            'identityClass' => '\app\models\User',
             'enableAutoLogin' => true,
+            'enableSession' => true,
+        ],
+        'authManager' => [
+            'class' => 'dektrium\rbac\components\DbManager',//'yii\rbac\DbManager' || 'dektrium\rbac\components\DbManager',
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -28,6 +33,52 @@ $config = [
             // for the mailer to send real emails.
             'useFileTransport' => true,
         ],
+        'urlManager' => [
+	    'enablePrettyUrl' => true,
+	    'showScriptName'  => false,
+	    //'enableStrictParsing' => true,
+	    'rules' => [
+                [
+                    'pattern' => '',
+                    'route' => 'site/index'
+                ],
+//                [
+//                    'pattern' => '/account',
+//                    'route' => '/user-account/index'
+//                ],
+//                [
+//                    'pattern' => '/account/<action>',
+//                    'route' => '/user-account/<action>'
+//                ],
+//                [
+//                    'pattern' => '/account/<action>/<id:\d+>',
+//                    'route' => '/user-account/<action>'
+//                ],
+//                [
+//                    'pattern' => '/signup',
+//                    'route' => 'user/create'
+//                ],
+                
+		[
+		    'pattern' => '<controller>/<action>/<id:\d+>',
+		    'route' => '<controller>/<action>',		
+		],
+		
+		[
+		    'pattern' => '<controller>/<action>',
+		    'route' => '<controller>/<action>',		
+		],
+		[
+		    'pattern' => '<module>/<controller>/<action>/<id:\d+>',
+		    'route' => '<module>/<controller>/<action>',		
+		],
+		[
+		    'pattern' => '<module>/<controller>/<action>',
+		    'route' => '<module>/<controller>/<action>',		
+		],
+                
+	    ],
+	],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
@@ -38,6 +89,20 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
+    ],
+    'modules' => [
+        'user' => [
+            'class' => 'dektrium\user\Module',
+            'mailer' => [
+                'sender' => 'set_sender@here.com'
+            ],
+            'modelMap' => [
+                'User' => 'app\models\User',
+            ],           
+        ],
+        'rbac' => [
+            'class' => 'dektrium\rbac\Module',
+        ],                
     ],
     'params' => $params,
 ];
