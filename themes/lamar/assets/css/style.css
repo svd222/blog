@@ -996,7 +996,7 @@ ol.commentlist li:first-child {
 
 /* Main Content Boxes */
 .main-content,.content {
-    padding: 60px 0 0;
+    padding: 0px;
 }
 
 .home-3 .main-content, .home-4 .main-content {
