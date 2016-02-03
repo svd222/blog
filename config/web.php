@@ -5,8 +5,12 @@ $params = require(__DIR__ . '/params.php');
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => ['log','bootstrap'],
+    'layout' => 'main-layout',
     'components' => [
+        'bootstrap' => [
+            'class' => 'app\components\Bootstrap'
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'purZuqxwM02hhm2KtCCXYfV1LqwAdDvX',
@@ -89,6 +93,15 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
+        'view' => [
+            'theme' => [
+                'basePath' => '@app/themes/lamar',
+                'baseUrl' => '@web/themes/lamar',
+                'pathMap' => [
+                    '@app/views' => '@app/themes/lamar/views',
+                ],
+            ]
+        ],
     ],
     'modules' => [
         'user' => [
