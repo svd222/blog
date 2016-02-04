@@ -93,3 +93,7 @@ a.desc:after {
 .btn-cancel {
     background-color: #737F8A;
 }
+
+#blog-content {
+    margin:25px 0px;
+}
