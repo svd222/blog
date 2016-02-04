@@ -47,11 +47,6 @@ $baseThemeUrl = Yii::$app->params['baseTheme'][1];
                         <a href="<?= Url::to(['site/contact']); ?>"><i class="fa fa-edit"></i>Contact us</a>
                         <a href="mailto:<?= Yii::$app->params['contactEmail']; ?>"><i class="fa fa-envelope"></i> Email : <?= Yii::$app->params['contactEmail']; ?></a>
                      </div>
-                     <div class="follow-us pull-right">
-                         <div class="social pull-left">
-                             <?= (!Yii::$app->user->isGuest)? 'Ваш баланс: $'.round(Yii::$app->user->identity->balance->balance,2,PHP_ROUND_HALF_UP) : '&nbsp;' ?>
-                         </div>
-                     </div>
                   </div>
                </div>
             </div>
@@ -190,7 +185,8 @@ $baseThemeUrl = Yii::$app->params['baseTheme'][1];
              <div class="content main-content2">
                <div class="container">
                    <div class="row">
-                       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 min-height-600">
+                       <!--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 min-height-600"></div>-->
+                       <div class="posts-block col-lg-9 col-md-9 col-sm-8 col-xs-12">
                             <?= $content ?>
                        </div>
                    </div>
