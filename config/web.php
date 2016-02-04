@@ -102,6 +102,18 @@ $config = [
                 ],
             ]
         ],
+        'i18n' => [
+            'translations' => [
+                'app*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@app/messages',
+                    'sourceLanguage' => 'en-US',
+                    'fileMap' => [
+                        'app/post' => 'post.php',
+                    ],
+                ],
+            ],
+        ],
     ],
     'modules' => [
         'user' => [
