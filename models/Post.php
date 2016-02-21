@@ -33,11 +33,22 @@ class Post extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'content', 'created_at', 'updated_at', 'author_id'], 'required'],
+            [['title', 'content'], 'required'],
             [['content'], 'string'],
             [['created_at', 'updated_at', 'author_id', 'status'], 'integer'],
             [['title'], 'string', 'max' => 255]
         ];
+    }
+    
+    public function beforeSave($insert) {
+        $time = time();
+        if($insert) {
+            $this->created_at = $time;
+            $this->status = 1;
+            $this->author_id = Yii::$app->user->id;
+        }
+        $this->updated_at = $time;
+        return parent::beforeSave($insert);        
     }
 
     /**
