@@ -11,7 +11,7 @@ class Bootstrap extends Component {
         $webroot = substr($webroot, 0, strrpos($webroot, '/'));
         $assetThemePath = $webroot.DIRECTORY_SEPARATOR.'themes'.DIRECTORY_SEPARATOR.Yii::$app->params['themeName'].DIRECTORY_SEPARATOR.'assets';
         $baseTheme = Yii::$app->assetManager->publish($assetThemePath,[
-            'forceCopy' => YII_ENV_DEV,
+            'forceCopy' => false//YII_ENV_DEV,
         ]);        
         Yii::$app->params['baseTheme'] = $baseTheme;
         Yii::setAlias('@baseThemePath', $baseTheme[0]);
