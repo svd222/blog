@@ -10,7 +10,7 @@ class Common extends Component {
         $str = explode(' ', $str);
         $return = '';
         $i = $len = 0;
-        while($len <= $length) {
+        while($len <= $length && isset($str[$i])) {
             $return .= $str[$i].' ';
             $len += strlen($str[$i]) + 1;
             $i++;
