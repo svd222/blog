@@ -1,5 +1,7 @@
 <?php
 use app\components\Common;
+use app\rbac\OwnPostRule;
+use yii\helpers\Html;
 ?>
 <article class="post hentry">
     <header class="post-header">
@@ -30,6 +32,36 @@ use app\components\Common;
              <i class="fa fa-comments"></i>
              <a href="#" class="blog-entry-meta-comments">4 comments</a>
           </div>
+          <?php
+            $canEdit = \Yii::$app->user->can('updatePost') || \Yii::$app->user->can('updateOwnPost',['post'=>$model]);
+            $canDelete = \Yii::$app->user->can('deletePost') || \Yii::$app->user->can('deleteOwnPost',['post'=>$model]);
+          if($canEdit || $canDelete) {
+          ?>
+          <div class="blog-entry-admin">
+              <?php if($canEdit) { 
+                $options = [
+                    'title' => Yii::t('yii', 'Update'),
+                    'aria-label' => Yii::t('yii', 'Update'),
+                    'data-pjax' => '0',
+                ];
+                echo Html::a('<i class="fa fa-edit"></i>', '/post/update/'.$model->id, $options);
+              }
+              if($canDelete) {
+                $options = [
+                    'title' => Yii::t('yii', 'Delete'),
+                    'aria-label' => Yii::t('yii', 'Delete'),
+                    'data-confirm' => Yii::t('yii', 'Are you sure you want to delete this item?'),
+                    'data-method' => 'post',
+                    'data-pjax' => '0',
+                    'class' => 'blog-entry-admin-delete',
+                ];
+                echo Html::a('<i class="fa fa-remove"></i>', '/post/delete/'.$model->id, $options);
+              }
+              ?>
+          </div> 
+          <?php
+          }
+          ?>
        </div>
     </header>
     <div class="post-content">

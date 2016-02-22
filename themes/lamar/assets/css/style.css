@@ -559,6 +559,21 @@ h2.title {
     vertical-align: top;
 }
 
+.blog-entry-admin {
+    /* margin-left:65px; */
+    float:right;
+    margin-right:25px;
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    vertical-align: top;
+}
+
+.blog-entry-admin-delete {
+    position:relative;
+    top:-1px;
+}
+
 ol.commentlist, ol.commentlist li {
     list-style: none;
     padding: 0;
