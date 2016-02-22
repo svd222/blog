@@ -165,6 +165,7 @@ $baseThemeUrl = Yii::$app->params['baseTheme'][1];
                 }
             ?>
             <div class="breadcrumb-wrapper">
+                <?php if(\Yii::$app->user->identity->getIsAdmin()) : ?>
                 <div class="container">
                     <div class="row">
                          <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
@@ -180,6 +181,7 @@ $baseThemeUrl = Yii::$app->params['baseTheme'][1];
                          </div>
                     </div>
                 </div>
+                <?php endif; ?>
             </div> 
              <!-- Main Content Start -->
              <div class="content main-content2">
