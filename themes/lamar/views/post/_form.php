@@ -16,14 +16,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'created_at')->textInput() ?>
-
-    <?= $form->field($model, 'updated_at')->textInput() ?>
-
-    <?= $form->field($model, 'author_id')->textInput() ?>
-
-    <?= $form->field($model, 'status')->textInput() ?>
-
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app/post', 'Create') : Yii::t('app/post', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
