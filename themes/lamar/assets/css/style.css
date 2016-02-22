@@ -2634,3 +2634,7 @@ footer a,.contact-box:hover,#options li a.selected,header .top-bar,header .top-b
 .user-content-container {
     margin-left: -70px !important;
 }
+
+.posts-block {
+    margin-top: 15px;
+}
