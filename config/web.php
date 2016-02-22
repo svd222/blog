@@ -7,7 +7,7 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log','bootstrap'],
     'layout' => 'main-layout',
-    'defaultRoute'=>'post',
+    'defaultRoute'=>'post/index',
     'components' => [
         'bootstrap' => [
             'class' => 'app\components\Bootstrap'
@@ -45,7 +45,7 @@ $config = [
 	    'rules' => [
                 [
                     'pattern' => '',
-                    'route' => 'site/index'
+                    'route' => 'post/index'
                 ],
 //                [
 //                    'pattern' => '/account',
