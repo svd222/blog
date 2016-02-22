@@ -7,6 +7,7 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log','bootstrap'],
     'layout' => 'main-layout',
+    'defaultRoute'=>'post',
     'components' => [
         'bootstrap' => [
             'class' => 'app\components\Bootstrap'
