@@ -45,6 +45,10 @@ class User extends BaseUser {
     
     const ROLE_SUBADMIN = 'subadmin';
     
+    const ROLE_REGISTERED = 'registered';
+    
+    const ROLE_AUTHOR = 'author';
+    
     /**
      * @inheritdoc
      */
