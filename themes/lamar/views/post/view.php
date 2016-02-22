@@ -30,10 +30,19 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'title',
-            'content:ntext',
-            'created_at',
-            'updated_at',
-            'author_id',
+            'content:raw',
+            [
+                'label'=>\Yii::t('app/post','created_at'),
+                'value'=>\Yii::$app->formatter->asDatetime($model->created_at),
+            ],
+            [
+                'label'=>\Yii::t('app/post','updated_at'),
+                'value'=>\Yii::$app->formatter->asDatetime($model->updated_at),
+            ],
+            [
+                'label'=>\Yii::t('app/post','author'),
+                'value'=>$model->author->username,
+            ],
             'status',
         ],
     ]) ?>
