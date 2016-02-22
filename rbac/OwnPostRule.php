@@ -9,7 +9,7 @@ use yii\rbac\Rule;
  */
 class OwnPostRule extends Rule
 {
-    public $name = 'ownAccount';
+    public $name = 'ownPost';
 
     /**
      * @param string|integer $user the user ID.
